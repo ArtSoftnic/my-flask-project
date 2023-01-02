@@ -114,4 +114,3 @@ def page_not_found(e):
 bootstrap = Bootstrap(app)
 mysql = MySQL(app)
 
-# add comment 
