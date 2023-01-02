@@ -1,0 +1,75 @@
+{% extends "bases.html" %}
+<!-- {% block page_content %} -->
+
+{% block content %}
+<div class="page-header">
+    <h4></h4>
+</div>
+<div class="container">    
+    <div class="row">
+        <div class="col md-6">
+            <div class="text-center">
+                <div class="jumbotron p-3">
+                    <h4>Packing - Packaging Standards</h4>
+                    <br>    
+                    <form method="post" class="row g-3">
+                        <div class="col-auto">
+                            <input name="txt_search" class="form-control" type="text" placeholder="Reference" aria-label="" autocomplete="off" required>
+                        </div>
+                        <div class="col-auto">
+                            <button name="Searching" type="submit" class="btn btn-primary" value="Search">Search</button>
+                        </div>   
+                    </form><br>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-dark">
+                            <tr>
+                                <th>Item</th>
+                                <th>Customer</th>
+                                <th>Pack MC</th>
+                                <th>Reference</th>
+                                <th>Length per box</th>
+                                <th>Length per bobbin</th>
+                                <th>Box code</th>
+                                <th>Bobbin size</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Chantasia</td>
+                                <td>Side Festooning</td>
+                                <td>B654/9</td>
+                                <td>700</td>
+                                <td>0</td>
+                                <td>A142</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Chantasia</td>
+                                <td>Side Festooning</td>
+                                <td>B654/12</td>
+                                <td>500</td>
+                                <td>0</td>
+                                <td>A142</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Chantasia</td>
+                                <td>Spooling Festooning</td>
+                                <td>B622/4</td>
+                                <td>0</td>
+                                <td>250</td>
+                                <td>A142</td>
+                                <td>100mm * 100mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>      
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% endblock %}

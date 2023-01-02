@@ -1,0 +1,64 @@
+{% extends "bases.html" %}
+<!-- {% block page_content %} -->
+
+{% block content %}
+
+<div class="page-header">
+    <h4></h4>
+</div>
+<div class="container">    
+    <div class="row">
+        <div class="col md-6">
+            <div class="text-center">
+                <div class="jumbotron p-3">             
+                    <h4>Preparation - Hanging Standards</h4>
+                    <!-- <div class="text-right">                 
+                        <button type="button" class="btn btn-success btn-circle btn-md">+</button>
+                    </div> -->
+                    <br>    
+                    <form method="post" class="row g-3">
+                        <div class="col-auto">
+                            <input name="txt_search" class="form-control" type="text" placeholder="Reference" aria-label="" autocomplete="off" required>
+                        </div>
+                        <div class="col-auto">
+                            <button name="Searching" type="submit" class="btn btn-primary" value="Search">Search</button>
+                        </div>   
+                    </form><br>
+
+                            
+                    <div class="table-responsive">
+                        {% if usr | length != 0 %}
+                        <table id="demo" class="table table-hover table-dark">
+                        
+                            <tr>
+                                <!-- <th>Item</th> -->
+                                <th>Greige reference</th>
+                                <th>Length per hang (m)</th>
+                                <th>Round per hang</th>
+                            </tr>
+                            
+                            {% for u in usr %}
+                            <tr>
+                                <!-- <td>{{u[0]}}</td> -->
+                                <td>{{u[1]}}</td>
+                                <td>{{u[2]}}</td>
+                                <td>{{u[3]}}</td>
+                                
+                                
+                            </tr>
+                            {% endfor %}
+                            
+                        </table>
+                        {% else %}
+                        <div id="demo">No search results.</div>
+                        {% endif %}
+
+                    </div>
+                </div> 
+            </div>  
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% endblock %}
