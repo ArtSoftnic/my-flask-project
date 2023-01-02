@@ -24,6 +24,7 @@ def getusers(txt_search):
     results = cur.fetchall()
     cur.close()
     return results
+    # comment 
    
 
 @app.route('/')
