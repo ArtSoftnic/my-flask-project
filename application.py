@@ -3,12 +3,12 @@ from flask_bootstrap import Bootstrap
 from flask_mysqldb import MySQL
 from mysql.connector import connect
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'ca-database.cuehjuoht5aa.us-east-2.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'planning'
-app.config['MYSQL_DB'] = 'cheynet_planning'
+application.config['MYSQL_HOST'] = 'ca-database.cuehjuoht5aa.us-east-2.rds.amazonaws.com'
+application.config['MYSQL_USER'] = 'root'
+application.config['MYSQL_PASSWORD'] = 'planning'
+application.config['MYSQL_DB'] = 'cheynet_planning'
 
 def getusers(txt_search):
 
@@ -27,12 +27,12 @@ def getusers(txt_search):
     
    
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/hanging-database', methods = ['POST'])
+@application.route('/hanging-database', methods = ['POST'])
 def insert_hanging():    
 
     if request.method == 'POST':
@@ -61,7 +61,7 @@ def insert_hanging():
         return redirect(url_for('add_hanging'))      
 
 
-@app.route('/hanging-database')
+@application.route('/hanging-database')
 def add_hanging():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM hanging_std ORDER BY id DESC")
@@ -70,7 +70,7 @@ def add_hanging():
     return render_template('hanging-database.html', usr = add_hanging)
 
 
-@app.route("/hanging-standard", methods = ["GET", "POST"])
+@application.route("/hanging-standard", methods = ["GET", "POST"])
 def hanging():
     if request.method == "POST":
         data = dict(request.form)
@@ -82,17 +82,17 @@ def hanging():
     return render_template("hanging.html", usr = users)
 
 
-@app.route('/packaging-standard')
+@application.route('/packaging-standard')
 def packaging():
     return render_template('packing.html')
 
 
-@app.route('/bases')
+@application.route('/bases')
 def bases():
     return render_template('bases.html')
 
 
-@app.route('/wastage')
+@application.route('/wastage')
 def wastage():
     return render_template('wastage.html')
 
@@ -102,7 +102,7 @@ def wastage():
 
 
 # Error page
-@app.errorhandler(404)
+@application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
@@ -111,8 +111,8 @@ def page_not_found(e):
 #     return render_template('500.html'), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
 
-bootstrap = Bootstrap(app)
-mysql = MySQL(app)
+bootstrap = Bootstrap(application)
+mysql = MySQL(application)
 
